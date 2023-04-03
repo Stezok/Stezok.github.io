@@ -12,15 +12,51 @@
 		mainPane = document.getElementById("main")
 		const picks = []
 		picks.push(
-			{
-				text: "Вика",
-				photo: "v.png"
-			}
+			"ПолеВик",
+			"2",
+			"3",
+			"4",
+			"5",
+			"6",
+			"7",
+			"8",
+			"9",
+			"10",
+			"11",
+			"12",
+			"13",
+			"14",
+			"15",
+			"16",
+			"17",
+			"18",
+			"19",
+			"20",
+			"21",
+			"22",
+			"23",
+			"24",
+			"25",
+			"26",
+			"27",
+			"Вика морская пехота",
 		)
+		const palette = [
+			{r: 250, g: 237, b: 227,},
+			{r: 182, g: 244, b: 216,},
+			{r: 250, g: 237, b: 227,},
+			{r: 250, g: 237, b: 227,},
+		]
 		for(i in picks) {
 			const c = document.createElement("div")
-			c.class = "photo"
-			// c.innerHTML = 
+			color = Math.floor(Math.random() * palette.length)
+			// c.style.backgroundColor = `rgba(${palette[color].r}, ${palette[color].g}, ${palette[color].b}, 0.33)`
+			c.innerHTML = `
+			<div class="photo ${i % 2 == 0 ? "" : "rev"}"
+			 style="background-color: rgba(${palette[color].r}, ${palette[color].g}, ${palette[color].b}, 0.8)">
+				<img src="./images/${i}.jpg" alt="">
+				<p>${picks[i]}</p>
+			</div>`
 			mainPane.appendChild(c)
 		}
 	}
@@ -30,18 +66,7 @@
 	
 	<div class="container">
 		<div class="header"></div>
-		<div class="photos" id="main">
-			<div class="photo">
-				<img src="https://llronx.stripocdn.email/content/guids/CABINET_228c0ff417bd857b484d73a2c8a47346/images/v.png" alt="">
-				<p>Вика</p>
-			</div>
-			<div class="photo"></div>
-			<div class="photo"></div>
-			<div class="photo"></div>	
-			<div class="photo"></div>
-			<div class="photo"></div>
-		</div>
-	
+		<div class="photos" id="main"></div>
 	</div>
 
 </body>

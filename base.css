@@ -15,10 +15,11 @@ body {
 
 .photos {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
 
     text-align: center;
+    gap: 10px;
+    margin-bottom: 50px;
 }
 
 .header {
@@ -30,16 +31,31 @@ body {
 }
 
 .photo {
-    width: 100%;
+    border-radius: 30px;
+    max-width: 100%;
     max-height: 300px;
     display: flex;
     justify-content: start;
-    background-color: white;
     margin: 5px;
 }
 
-img {
-    
-    width: 50% !important;
+.rev {
+    flex-direction: row-reverse;
+}
 
+img {
+    width: 50% !important;
+    border-radius: 30px 0 0 30px;
+}
+
+.rev img {
+    border-radius: 0 30px 30px 0;
+}
+
+p {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+    width: 50%;
+    height: auto;
+    align-self: center;
 }
