@@ -8,12 +8,18 @@
 	<title>Document</title>
 </head>
 <script>
+
+	var seed = 2;
+	function random() {
+		var x = Math.sin(seed++) * 10000;
+		return x - Math.floor(x);
+	}
 	function init() {
 		mainPane = document.getElementById("main")
 		const picks = []
 		picks.push(
-			"ПолеВик",
 			"2",
+			"ПолеВик",
 			"3",
 			"4",
 			"5",
@@ -49,11 +55,13 @@
 		]
 		for(i in picks) {
 			const c = document.createElement("div")
-			color = Math.floor(Math.random() * palette.length)
+			c.className = "pd"
 			// c.style.backgroundColor = `rgba(${palette[color].r}, ${palette[color].g}, ${palette[color].b}, 0.33)`
+			
+			// style="background-color: rgba(${palette[color].r}, ${palette[color].g}, ${palette[color].b}, 0.8)">
 			c.innerHTML = `
 			<div class="photo ${i % 2 == 0 ? "" : "rev"}"
-			 style="background-color: rgba(${palette[color].r}, ${palette[color].g}, ${palette[color].b}, 0.8)">
+				style='background-image: url("./soft${Math.floor(random()*4)}.jpg")''>
 				<img src="./images/${i}.jpg" alt="">
 				<p>${picks[i]}</p>
 			</div>`
