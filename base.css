@@ -196,7 +196,7 @@ body {
         0% {
             filter: grayscale(100%);
             position: relative;
-            left: -23%;
+            left: -17.5%;
             border-radius: 0;
         }
         
@@ -210,6 +210,23 @@ body {
         animation-name: openleftimage;
         animation-duration: 500ms;
         animation-fill-mode: backwards;
+        animation-play-state: paused; 
+    }
+    
+    @keyframes openbg {
+        0% {
+            background-color: none;
+        }
+        
+        100% {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    .photo {
+        animation-name: openbg;
+        animation-duration: 500ms;
+        animation-fill-mode: forwards;
         animation-play-state: paused; 
     }
 }
