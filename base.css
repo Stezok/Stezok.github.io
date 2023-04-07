@@ -4,16 +4,15 @@
     box-sizing: border-box;
 }
 
-body {
-    padding: 20px;
-    background-image: url("./bg.jpg");
+body::-webkit-scrollbar {
+    display: none;
 }
 
-body::before {
-    content: black;
-    opacity: 0.4;
-    position: absolute;
+body {
+    padding: 20px;
+    background-image: url("./bg.webp");
 }
+
 
 .container {
     margin: 0 auto;
@@ -27,6 +26,175 @@ body::before {
     text-align: center;
     gap: 70px;
     /* margin-bottom: 50px; */
+}
+
+@media (min-width: 800px) {
+    .photos>* {
+        flex: 1 1 500px;
+    }
+    .photo {
+        height: 400px;
+    }
+
+    @keyframes openlefttext {
+        0% {
+            position: relative;
+            left: -23%;
+        }
+        100% {
+            left: +23%;
+        }
+    }
+
+    p {
+        animation-name: openlefttext;
+        animation-duration: 500ms;
+        animation-fill-mode: backwards;
+        animation-play-state: paused;
+    }
+    
+    @keyframes openrighttext {
+        0% {
+            position: relative;
+            left: +23%;
+        }
+        100% {
+            left: -23%;
+        }
+    }
+
+    .rev p {
+        animation-name: openrightimage;
+        animation-duration: 500ms;
+        animation-fill-mode: backwards;
+        animation-play-state: paused;
+    }
+
+
+    @keyframes openrightimage {
+        0% {
+            filter: grayscale(100%);
+            position: relative;
+            left: +23%;
+            border-radius: 0;
+        }
+        
+        100% {
+            filter: grayscale(0%);
+            left: -23%;
+            border-radius: 30px 0 0 30px;
+        }
+    }
+
+    img {
+        animation-name: openrightimage;
+        animation-duration: 500ms;
+        animation-fill-mode: backwards;
+        animation-play-state: paused;
+    }
+
+    @keyframes openleftimage {
+        0% {
+            filter: grayscale(100%);
+            position: relative;
+            left: -23%;
+            border-radius: 0;
+        }
+        
+        100% {
+            filter: grayscale(0%);
+            left: +23%;
+            border-radius: 0 30px 30px 0;
+        }
+    }
+    .rev img {
+        animation-name: openleftimage;
+        animation-duration: 500ms;
+        animation-fill-mode: backwards;
+        animation-play-state: paused; 
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    @keyframes openlefttext {
+        0% {
+            position: relative;
+            left: -23%;
+        }
+        100% {
+            left: +23%;
+        }
+    }
+
+    p {
+        animation-name: openlefttext;
+        animation-duration: 500ms;
+        animation-fill-mode: backwards;
+        animation-play-state: paused;
+    }
+    
+    @keyframes openrighttext {
+        0% {
+            position: relative;
+            left: +23%;
+        }
+        100% {
+            left: -23%;
+        }
+    }
+
+    .rev p {
+        animation-name: openrightimage;
+        animation-duration: 500ms;
+        animation-fill-mode: backwards;
+        animation-play-state: paused;
+    }
+
+
+    @keyframes openrightimage {
+        0% {
+            filter: grayscale(100%);
+            position: relative;
+            left: +23%;
+            border-radius: 0;
+        }
+        
+        100% {
+            filter: grayscale(0%);
+            left: -23%;
+            border-radius: 30px 0 0 30px;
+        }
+    }
+
+    img {
+        animation-name: openrightimage;
+        animation-duration: 500ms;
+        animation-fill-mode: backwards;
+        animation-play-state: paused;
+    }
+
+    @keyframes openleftimage {
+        0% {
+            filter: grayscale(100%);
+            position: relative;
+            left: -23%;
+            border-radius: 0;
+        }
+        
+        100% {
+            filter: grayscale(0%);
+            left: +23%;
+            border-radius: 0 30px 30px 0;
+        }
+    }
+    .rev img {
+        animation-name: openleftimage;
+        animation-duration: 500ms;
+        animation-fill-mode: backwards;
+        animation-play-state: paused; 
+    }
 }
 
 .header {
@@ -58,10 +226,11 @@ body::before {
     border-radius: 30px;
     
     background-size: cover;
+    background-color: rgba(0, 0, 0, 0.3);
     
     
     max-width: 100%;
-    max-height: 400px;
+    max-height: 500px;
     display: flex;
     justify-content: start;
 }
@@ -76,6 +245,13 @@ img {
     min-height: 300px;
     object-fit:cover;
     border-radius: 30px 0 0 30px;
+}
+
+img:active,
+img:focus,
+img:hover {
+  /* animation-fill-mode: forwards;
+  animation-play-state: running; */
 }
 
 .rev img {

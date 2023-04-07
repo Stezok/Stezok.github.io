@@ -47,6 +47,7 @@
 			"Вика и пиво- нет пика и виво",
 			"Вика морская пехота",
 		)
+		
 		const palette = [
 			{r: 250, g: 237, b: 227,},
 			{r: 182, g: 244, b: 216,},
@@ -59,13 +60,26 @@
 			// c.style.backgroundColor = `rgba(${palette[color].r}, ${palette[color].g}, ${palette[color].b}, 0.33)`
 			
 			// style="background-color: rgba(${palette[color].r}, ${palette[color].g}, ${palette[color].b}, 0.8)">
+			// style='background-image: url("./soft${Math.floor(random()*4)}.jpg")''>
 			c.innerHTML = `
-			<div class="photo ${i % 2 == 0 ? "" : "rev"}"
-				style='background-image: url("./soft${Math.floor(random()*4)}.jpg")''>
+			<div class="photo ${i % 2 == 0 ? "rev" : ""}">
 				<img src="./images/${i}.jpg" alt="">
 				<p>${picks[i]}</p>
 			</div>`
 			mainPane.appendChild(c)
+		}
+
+		list = document.getElementsByClassName("photo")
+		for(el of list) {
+			// console.log(el)
+			el.onmouseover = runAnimation
+		}
+	}
+	function runAnimation(t) {
+		for(const child of this.children) {
+			console.log(child)
+			child.style.animationFillMode = "forwards"
+			child.style.animationPlayState = "running"
 		}
 	}
 </script>
